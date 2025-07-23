@@ -11,28 +11,24 @@ public class Anagram {
         System.out.print("Enter second string: ");
         String str2 = sc.nextLine();
 
-        // Remove spaces and convert to lowercase
+        // Convert both strings to lowercase and remove spaces (for accurate comparison)
         str1 = str1.replaceAll("\\s", "").toLowerCase();
         str2 = str2.replaceAll("\\s", "").toLowerCase();
 
-        // Check if lengths are equal
-        if (str1.length() != str2.length()) {
-            System.out.println("Not anagrams.");
-            return;
-        }
+        // Sort both strings
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
 
-        // Convert to char arrays and sort
-        char[] arr1 = str1.toCharArray();
-        char[] arr2 = str2.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
 
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
-
-        // Compare sorted arrays
-        if (Arrays.equals(arr1, arr2)) {
+        // Compare sorted character arrays
+        if (Arrays.equals(charArray1, charArray2)) {
             System.out.println("The strings are anagrams.");
         } else {
             System.out.println("The strings are not anagrams.");
         }
+
+        sc.close();
     }
 }
