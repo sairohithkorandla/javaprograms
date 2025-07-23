@@ -30,5 +30,6 @@ public class Anagram {
         }
 
         sc.close();
+        // this is the change for anagram
     }
 }
